@@ -1,0 +1,33 @@
+<!-- HERO BUSCADOR -->
+<section class="hero-books">
+  <div class="hero-books-inner">
+    <div class="hero-books-text">
+      <h1>Rifa Poder Legislativo del Estado de México</h1>
+      <form class="hero-books-form" [formGroup]="formRifa">
+        <button type="submit" (click)="sorteo()">Ruleta</button>
+      </form>
+
+      <div class="hero-books-meta">
+        
+      </div>
+    </div>
+  </div> 
+</section>
+
+<!-- RESULTADOS -->
+<section class="results-section" *ngIf="resultados">
+  <div class="results-inner">
+    <div class="results-header">
+      <h1>¡¡ {{ resultados.premio }} !!</h1>
+    </div>
+  </div>
+</section>
+<section class="results-section" *ngIf="!resultados">
+  <div class="results-inner">
+    <div class="results-header">
+      <h1> ¡Ya no hay premios! :(</h1>
+    </div>
+  </div>
+</section>
+
+
