@@ -8,7 +8,7 @@ import { environment } from '../../enviroments/environment';
 })
 export class RifaService {
   private myAppUrl: string;
-  private myAPIUrl: string = 'api/rifa/';
+  private myAPIUrl: string = 'api/rifa';
 
   constructor(private http: HttpClient) { 
     this.myAppUrl = environment.appUrl;

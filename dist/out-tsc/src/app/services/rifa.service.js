@@ -4,7 +4,7 @@ import { environment } from '../../enviroments/environment';
 let RifaService = class RifaService {
     http;
     myAppUrl;
-    myAPIUrl = 'api/rifa/';
+    myAPIUrl = 'api/rifa';
     constructor(http) {
         this.http = http;
         this.myAppUrl = environment.appUrl;
