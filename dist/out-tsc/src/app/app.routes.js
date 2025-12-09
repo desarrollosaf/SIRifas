@@ -44,19 +44,10 @@ export const routes = [
                 path: 'general',
                 loadChildren: () => import('./views/pages/general/general.routes')
             },
-            {
-                path: 'secciones',
-                loadChildren: () => import('./views/pages/catalogos/seccion/seccion.routes')
-            },
-            {
-                path: 'series',
-                loadChildren: () => import('./views/pages/catalogos/serie/serie.routes')
-            },
-            {
-                path: 'subseries',
-                loadChildren: () => import('./views/pages/catalogos/subserie/subserie.routes')
-            }
         ]
+    },
+    {
+        path: 'rifa', loadChildren: () => import('./views/pages/rifa/rifa.routes')
     },
     {
         path: 'error',

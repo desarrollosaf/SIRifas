@@ -1,7 +1,5 @@
 import { __decorate } from "tslib";
-import { NgStyle } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { FormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../../../core/services/user.service';
 import Swal from 'sweetalert2';
@@ -39,12 +37,13 @@ let LoginComponent = class LoginComponent {
         };
         this._userService.login(user).subscribe({
             next: (response) => {
+                console.log(response);
                 const userData = response.user;
                 const bandera = response.bandera;
                 localStorage.setItem('isLoggedin', 'true');
                 this._userService.setCurrentUser(userData);
                 if (bandera) {
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/registros']);
                 }
                 else {
                     this.router.navigate([this.returnUrl]);
@@ -81,8 +80,8 @@ LoginComponent = __decorate([
     Component({
         selector: 'app-login',
         imports: [
-            NgStyle,
-            RouterLink,
+            // NgStyle,
+            // RouterLink,
             FormsModule
         ],
         templateUrl: './login.component.html',

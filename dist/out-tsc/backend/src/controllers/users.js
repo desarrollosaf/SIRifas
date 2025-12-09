@@ -1,5 +1,7 @@
 import bcrypt from 'bcrypt';
 import User from '../models/saf/users';
+import Role from '../models/roles';
+import RoleUsers from '../models/role_user';
 import jwt from 'jsonwebtoken';
 export const ReadUser = async (req, res) => {
     const listUser = await User.findAll();
@@ -12,10 +14,25 @@ export const LoginUser = async (req, res, next) => {
     const { rfc, password } = req.body;
     let passwordValid = false;
     let user = null;
+    let role_user = null;
     let bandera = true;
     user = await User.findOne({
         where: { rfc: rfc },
     });
+    role_user = await RoleUsers.findOne({
+        where: { user_id: user.id },
+        include: [
+            {
+                model: Role,
+                as: 'role',
+            },
+        ],
+    });
+    if (!role_user) {
+        return res.status(400).json({
+            msg: `Sin permiso`
+        });
+    }
     if (!user) {
         return res.status(400).json({
             msg: `Usuario no existe con el rfc ${rfc}`
@@ -36,7 +53,7 @@ export const LoginUser = async (req, res, next) => {
         maxAge: 2 * 60 * 60 * 1000,
         path: '/',
     });
-    return res.json({ user, bandera });
+    return res.json({ user, bandera, role_user });
 };
 export const getCurrentUser = (req, res) => {
     const user = req.user;

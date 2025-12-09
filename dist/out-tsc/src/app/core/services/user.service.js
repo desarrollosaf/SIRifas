@@ -2,15 +2,17 @@ import { __decorate } from "tslib";
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../../enviroments/environment';
 let UserService = class UserService {
     // private myAppUrl: string;
     myAPIUrl;
     http = inject(HttpClient);
     currentUserSubject = new BehaviorSubject(null);
     currentUser$ = this.currentUserSubject.asObservable();
-    myAppUrl = 'http://localhost:3001/';
+    // private myAppUrl: string = 'http://localhost:3006/';
+    myAppUrl;
     constructor() {
-        // this.myAppUrl =  environment.appUrl;
+        this.myAppUrl = environment.appUrl;
         this.myAPIUrl = 'api/user';
         const storedUser = localStorage.getItem('currentUser');
         if (storedUser) {

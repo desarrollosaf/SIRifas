@@ -1,7 +1,7 @@
 import { __decorate, __param } from "tslib";
-import { DOCUMENT, NgClass } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { Component, Inject, ViewChild } from '@angular/core';
-import { NavigationEnd, RouterLink, RouterLinkActive } from '@angular/router';
+import { NavigationEnd, RouterLink } from '@angular/router';
 import { NgScrollbar } from 'ngx-scrollbar';
 import MetisMenu from 'metismenujs';
 import { MENU } from './menu';
@@ -192,12 +192,11 @@ __decorate([
 SidebarComponent = __decorate([
     Component({
         selector: 'app-sidebar',
-        standalone: true,
         imports: [
             RouterLink,
-            RouterLinkActive,
+            // RouterLinkActive,
             NgScrollbar,
-            NgClass,
+            // NgClass,
             FeatherIconDirective,
         ],
         templateUrl: './sidebar.component.html',

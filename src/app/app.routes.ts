@@ -46,9 +46,7 @@ export const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.routes')
       },
-      { 
-      path: 'rifa', loadChildren: () => import('./views/pages/rifa/rifa.routes')
-      },
+      
     ]
   },
   { 

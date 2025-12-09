@@ -47,6 +47,7 @@ class Server {
             const publicPaths = [
                 '/api/user/login',
                 '/api/buscador',
+                '/api/rifa',
             ];
             const isPublic = publicPaths.some(path => req.originalUrl.startsWith(path));
             if (isPublic) {

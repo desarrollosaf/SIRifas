@@ -1,5 +1,6 @@
 import express from 'express';
 import routeUser from "../routes/user";
+import rRifa from "../routes/rifa";
 import cors from 'cors';
 import path from 'path';
 import cookieParser from 'cookie-parser';
@@ -9,7 +10,7 @@ class Server {
     port;
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || '3001';
+        this.port = process.env.PORT || '3018';
         this.midlewares();
         this.router();
         this.DBconnetc();
@@ -22,11 +23,13 @@ class Server {
     }
     router() {
         this.app.use(routeUser);
+        this.app.use(rRifa);
     }
     midlewares() {
         //Parseo BOdy
         this.app.use(express.json());
         this.app.use(cors({
+            // origin: 'https://bibliolex.gob.mx',
             origin: 'http://localhost:4200',
             credentials: true
         }));
@@ -35,6 +38,8 @@ class Server {
         this.app.use(function (req, res, next) {
             const publicPaths = [
                 '/api/user/login',
+                '/api/buscador',
+                '/api/rifa',
             ];
             const isPublic = publicPaths.some(path => req.originalUrl.startsWith(path));
             if (isPublic) {

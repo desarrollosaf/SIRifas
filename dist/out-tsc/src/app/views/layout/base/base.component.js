@@ -2,7 +2,6 @@ import { __decorate } from "tslib";
 import { Component, inject } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { SidebarComponent } from '../sidebar/sidebar.component';
 import { FooterComponent } from '../footer/footer.component';
 let BaseComponent = class BaseComponent {
     isLoading = false;
@@ -23,11 +22,9 @@ let BaseComponent = class BaseComponent {
 BaseComponent = __decorate([
     Component({
         selector: 'app-base',
-        standalone: true,
         imports: [
             RouterOutlet,
             NavbarComponent,
-            SidebarComponent,
             FooterComponent
         ],
         templateUrl: './base.component.html',
