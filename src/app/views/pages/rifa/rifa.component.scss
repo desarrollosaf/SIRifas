@@ -8,7 +8,6 @@
   min-height: 100vh;
   background-color: #ffffff;
   box-sizing: border-box;
-  border: 8px solid #e0e0e0; /* marco gris suave tipo ejemplo */
   overflow: hidden;
 }
 
@@ -33,23 +32,27 @@
 
 /* Ajusta estas clases según tus PNG (izq/der, arriba/abajo) */
 .deco-top-left {
-  top: -30px;
+  top: 0px;
   left: -10px;
+  max-width: 100%;
 }
 
 .deco-top-right {
-  top: -30px;
+  top: 0px;
   right: -10px;
+  max-width: 100%;
 }
 
 .deco-bottom-left {
-  bottom: -40px;
-  left: -10px;
+  bottom: 0px;
+  left: 0px;
+  max-width: 100%;
 }
 
 .deco-bottom-right {
-  bottom: -40px;
-  right: -10px;
+  bottom: 0px;
+  right: 0px;
+  max-width: 100%;
 }
 
 /* HEADER CON LOGOS */
@@ -69,7 +72,7 @@
 }
 
 .xmas-logos img {
-  height: 60px;
+  height: 100px;
   max-width: 100%;
   object-fit: contain;
 }
