@@ -1,33 +1,50 @@
-<!-- HERO BUSCADOR -->
-<section class="hero-books">
-  <div class="hero-books-inner">
-    <div class="hero-books-text">
-      <h1>Rifa Poder Legislativo del Estado de Méxicaaao</h1>
-      <form class="hero-books-form" [formGroup]="formRifa">
-        <button type="submit" (click)="sorteo()">Ruleta</button>
-      </form>
+<div class="xmas-landing">
 
-      <div class="hero-books-meta">
-        
+  <!-- Decoraciones de las esquinas -->
+  <img class="xmas-decoration deco-top-left"
+       src="assets/navidad/nochebuena-top-left.png"
+       alt="Decoración navideña" />
+
+  <img class="xmas-decoration deco-top-right"
+       src="assets/navidad/nochebuena-top-right.png"
+       alt="Decoración navideña" />
+
+  <img class="xmas-decoration deco-bottom-left"
+       src="assets/navidad/nochebuena-bottom-left.png"
+       alt="Decoración navideña" />
+
+  <img class="xmas-decoration deco-bottom-right"
+       src="assets/navidad/nochebuena-bottom-right.png"
+       alt="Decoración navideña" />
+
+  <!-- Contenido principal -->
+  <div class="xmas-inner">
+
+    <!-- fila de logos (opcional) -->
+    <header class="xmas-header">
+      <div class="xmas-logos">
+        <img src="assets/logos/escudo.png" alt="Escudo" />
+        <img src="assets/logos/congreso.png" alt="Congreso Estado de México" />
+        <img src="assets/logos/fin-ano.png" alt="Fin de Año 2025" />
       </div>
-    </div>
-  </div> 
-</section>
+    </header>
 
-<!-- RESULTADOS -->
-<section class="results-section" *ngIf="resultados">
-  <div class="results-inner">
-    <div class="results-header">
-      <h1>¡¡ {{ resultados.premio }} !!</h1>
-    </div>
+    <main class="xmas-main">
+      <div class="xmas-text">
+        <p class="xmas-badge">Fin de Año 2025</p>
+        <h1 class="xmas-title">¡Celebremos juntos esta Navidad!</h1>
+        <p class="xmas-subtitle">
+          Participa en nuestra dinámica y <strong>gana premios increíbles</strong>.
+        </p>
+      </div>
+
+      <div class="xmas-gif-wrapper">
+        <!-- Aquí va tu GIF -->
+        <img src="images/gifs/tombola.gif"
+             alt="Premios de fin de año"
+             class="xmas-gif" />
+      </div>
+    </main>
+
   </div>
-</section>
-<section class="results-section" *ngIf="!resultados">
-  <div class="results-inner">
-    <div class="results-header">
-      <h1> ¡Ya no hay premios! :(</h1>
-    </div>
-  </div>
-</section>
-
-
+</div>
