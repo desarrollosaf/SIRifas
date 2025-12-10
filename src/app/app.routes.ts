@@ -50,6 +50,10 @@ export const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.routes')
       },
+      {
+        path: 'sorteo',
+        loadChildren: () => import('./views/pages/sorteo/sorteo.routes')
+      },
       
     ]
   },
