@@ -14,8 +14,8 @@ export class RifaService {
     this.myAppUrl = environment.appUrl;
   }
 
-   numRadom(){
-      const url = `${this.myAppUrl}${this.myAPIUrl}`;
-      return this.http.get(url)
-    }
+   numRadom() {
+    const url = `${this.myAppUrl}${this.myAPIUrl}`;
+    return this.http.get(url, { withCredentials: true });
+  }
 }

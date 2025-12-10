@@ -3,6 +3,10 @@ import { BaseComponent } from './views/layout/base/base.component';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
+  { 
+    path: 'rifa', loadChildren: () => import('./views/pages/rifa/rifa.routes')
+  },
+  
   { path: 'auth', loadChildren: () => import('./views/pages/auth/auth.routes')},
   {
     path: '',
@@ -49,9 +53,7 @@ export const routes: Routes = [
       
     ]
   },
-  { 
-    path: 'rifa', loadChildren: () => import('./views/pages/rifa/rifa.routes')
-  },
+  
   
   {
     path: 'error',

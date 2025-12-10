@@ -11,7 +11,7 @@ let RifaService = class RifaService {
     }
     numRadom() {
         const url = `${this.myAppUrl}${this.myAPIUrl}`;
-        return this.http.get(url);
+        return this.http.get(url, { withCredentials: true });
     }
 };
 RifaService = __decorate([

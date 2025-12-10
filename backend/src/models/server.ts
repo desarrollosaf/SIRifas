@@ -36,24 +36,34 @@ class Server {
     midlewares(){
         //Parseo BOdy
         this.app.use(express.json())
-         this.app.use(cors({
-            // origin: 'https://bibliolex.gob.mx',
-            origin: 'http://localhost:4200',
+        this.app.use(cors({
+           origin: function (origin, callback) {
+                const allowedOrigins = ['http://localhost:4200'];
+                if (!origin || allowedOrigins.includes(origin) ) {
+                    callback(null, true);
+                } else {
+                    callback(new Error('Not allowed by CORS')); 
+                }
+            },
             credentials: true
-        }))
+        }));
         this.app.use(cookieParser());
         this.app.use('/storage', express.static(path.join(process.cwd(), 'storage')));
-        this.app.use(function (req, res, next) {
+        this.app.use((req, res, next) => {
             const publicPaths = [
                 '/api/user/login',
                 '/api/buscador',
-                '/api/rifa',
+                '/api/rifa'
             ];
-            const isPublic = publicPaths.some(path => req.originalUrl.startsWith(path));
+
+            const isPublic = publicPaths.some(path => req.path.startsWith(path));
+
+
             if (isPublic) {
-                return next(); 
+                return next();
             }
-            return verifyToken(req, res, next); 
+
+            return verifyToken(req, res, next);
         });
     }
 

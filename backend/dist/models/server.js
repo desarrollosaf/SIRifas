@@ -41,18 +41,26 @@ class Server {
         //Parseo BOdy
         this.app.use(express_1.default.json());
         this.app.use((0, cors_1.default)({
-            // origin: 'https://bibliolex.gob.mx',
-            origin: 'http://localhost:4200',
+            origin: function (origin, callback) {
+                const allowedOrigins = ['http://localhost:4200'];
+                if (!origin || allowedOrigins.includes(origin)) {
+                    callback(null, true);
+                }
+                else {
+                    callback(new Error('Not allowed by CORS'));
+                }
+            },
             credentials: true
         }));
         this.app.use((0, cookie_parser_1.default)());
         this.app.use('/storage', express_1.default.static(path_1.default.join(process.cwd(), 'storage')));
-        this.app.use(function (req, res, next) {
+        this.app.use((req, res, next) => {
             const publicPaths = [
                 '/api/user/login',
                 '/api/buscador',
+                '/api/rifa'
             ];
-            const isPublic = publicPaths.some(path => req.originalUrl.startsWith(path));
+            const isPublic = publicPaths.some(path => req.path.startsWith(path));
             if (isPublic) {
                 return next();
             }
